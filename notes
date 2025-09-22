@@ -1,0 +1,14 @@
+# Create a .gitignore file for logfiles
+# The log stuff has to go into some file but I'm not really sure where yet, it is not .gitignore
+# import logging
+# logging.basicConfig(
+filename="app.log", 
+encoding="utf-8", 
+filemode="a",
+format="{asctime} - {levelname} - {message}", 
+style="{", datefmt="%Y-%m-%d %H:%M", 
+level="DEBUG")
+# Idk what these below have to do with anything
+# logging.debug("This is just a debug alert")
+# logging.info("This is just some info to see")
+# logging.warning("This is just a WARNING")
