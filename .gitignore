@@ -1,0 +1,8 @@
+# Ignore logs
+logs/
+
+# Ignore local database
+*.duckdb
+
+# Ignore parquet data
+*.parquet
