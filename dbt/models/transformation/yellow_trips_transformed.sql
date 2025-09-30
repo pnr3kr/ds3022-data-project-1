@@ -22,3 +22,4 @@ SELECT
 FROM {{ source('main', 'yellow_trips_clean') }} yt
 JOIN {{ source('main', 'emissions') }} e
   ON e.vehicle_type = 'yellow_taxi'
+
