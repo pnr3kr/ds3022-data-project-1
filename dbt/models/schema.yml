@@ -1,0 +1,77 @@
+version: 2  # dbt schema file version
+
+sources:
+  - name: main  # the schema/database where your raw/clean tables live
+    tables:
+      - name: yellow_trips_clean  # cleaned yellow taxi trips table
+      - name: green_trips_clean   # cleaned green taxi trips table
+      - name: emissions           # emissions lookup table
+
+models:
+  - name: yellow_trips_transformed  # dbt model for transformed yellow taxi trips
+    description: "Yellow taxi trips after transformations"
+    columns:
+      - name: passenger_count       # ensure passenger_count is never NULL
+        tests:
+          - not_null
+      - name: trip_distance         # ensure trip_distance is never NULL
+        tests:
+          - not_null
+      - name: tpep_pickup_datetime  # pickup timestamp (yellow)
+        tests:
+          - not_null
+      - name: tpep_dropoff_datetime # dropoff timestamp (yellow)
+        tests:
+          - not_null
+      - name: trip_co2_kgs          # calculated CO₂ emissions
+        tests:
+          - not_null
+      - name: avg_mph               # calculated average speed
+        tests:
+          - not_null
+      - name: hour_of_day           # extracted pickup hour
+        tests:
+          - not_null
+      - name: day_of_week           # extracted pickup day of week
+        tests:
+          - not_null
+      - name: week_of_year          # extracted pickup week of year
+        tests:
+          - not_null
+      - name: month_of_year         # extracted pickup month of year
+        tests:
+          - not_null
+
+  - name: green_trips_transformed   # dbt model for transformed green taxi trips
+    description: "Green taxi trips after transformations"
+    columns:
+      - name: passenger_count       # ensure passenger_count is never NULL
+        tests:
+          - not_null
+      - name: trip_distance         # ensure trip_distance is never NULL
+        tests:
+          - not_null
+      - name: lpep_pickup_datetime  # pickup timestamp (green)
+        tests:
+          - not_null
+      - name: lpep_dropoff_datetime # dropoff timestamp (green)
+        tests:
+          - not_null
+      - name: trip_co2_kgs          # calculated CO₂ emissions
+        tests:
+          - not_null
+      - name: avg_mph               # calculated average speed
+        tests:
+          - not_null
+      - name: hour_of_day           # extracted pickup hour
+        tests:
+          - not_null
+      - name: day_of_week           # extracted pickup day of week
+        tests:
+          - not_null
+      - name: week_of_year          # extracted pickup week of year
+        tests:
+          - not_null
+      - name: month_of_year         # extracted pickup month of year
+        tests:
+          - not_null

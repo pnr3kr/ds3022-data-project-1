@@ -1,5 +1,6 @@
 # Ignore logs
 logs/
+*.logs
 
 # Ignore local database
 *.duckdb
